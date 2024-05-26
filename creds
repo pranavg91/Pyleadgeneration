@@ -1,2 +1,13 @@
 pranav.hitmantoto@psquickit.com
 7Iron-hide
+
+
+# steps to push code in git hub
+create repo in git hub before performing below steps.
+
+git init
+git add .
+git commit -m "comment"
+git remote add origin https://github.com/pranavg91/Pyleadgeneration.git
+git branch -M main
+git push -u origin main
