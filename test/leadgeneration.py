@@ -20,8 +20,8 @@ def test_lead():
     password.send_keys("7Iron-hide")
     submit_button = driver.find_element(By.ID, "Login")
     submit_button.click()
-    #
-    # time.sleep(20)
+
+    time.sleep(10)
     #
     # assert "psquickit2" in driver.page_source
     # driver.maximize_window()
@@ -39,7 +39,8 @@ def test_lead():
     #
     # # click to new button
     #
-    # driver.find_element(By.XPATH,"//div[@role='group']//preceding::button[normalize-space()='New']").click()
+    # newbutton = driver.find_element(By.XPATH,"//div[@role='group']//preceding::button[normalize-space()='New']")
+    # driver.execute_script("arguments[0].click();",newbutton)
     # time.sleep(10)
     # driver.find_element(By.XPATH,"//input[@name='lastName']").send_keys("jindal")
     # time.sleep(10)
@@ -48,16 +49,29 @@ def test_lead():
     #
     # driver.find_element(By.XPATH,"//button[@name='SaveEdit']").click()
     # driver.implicitly_wait(50)
-    #
+
     driver.get("https://psquickit2-dev-ed.develop.lightning.force.com/lightning/r/Lead/00QdM0000023eJ7UAI/view")
 
-    time.sleep(56)
+    time.sleep(20)
 
     matchStateType = driver.find_element(By.XPATH,
                                          "//div[@class='runtime_sales_pathassistantPathAssistant']//a[@title='Converted']")
     driver.execute_script("arguments[0].click();", matchStateType)
     #
-
+    time.sleep(19)
     stateType =driver.find_element(By.XPATH,"//button[@class ='slds-button slds-button--brand slds-path__mark-complete stepAction active uiButton']")
     driver.execute_script("arguments[0].click();",stateType)
-    # driver.find_element(By.XPAH,"//button[@class='slds-button slds-button--brand slds-path__mark-complete stepAction current uiButton']").click()
+
+    #convert lead to account.
+    time.sleep(10)
+    convert = driver.find_element(By.XPATH,"//button[contains(text(),'Convert')]")
+    driver.execute_script("arguments[0].click();",convert)
+
+    time.sleep(10)
+    lead_conversation = driver.find_element(By.XPATH,"//*[contains(text(),'Your lead has been converted')]")
+    print(lead_conversation.text)
+    assert "Your lead has been converted" in lead_conversation.text
+
+
+
+
