@@ -22,19 +22,19 @@ def test_lead():
     submit_button.click()
 
     time.sleep(10)
-    #
-    # assert "psquickit2" in driver.page_source
-    # driver.maximize_window()
-    # driver.find_element(By.XPATH, "//div[@class='slds-icon-waffle']/..//div[@class='slds-icon-waffle']").click()
-    #
-    # time.sleep(10)
-    #
-    # actions = ActionChains(driver)
-    #
-    # driver.find_element(By.XPATH,"//div[@class='slds-r6']//following::input[@id='input-113']").send_keys("Leads")
-    # time.sleep(10)
-    # actions.send_keys(Keys.ARROW_DOWN).send_keys(Keys.ENTER).perform()
-    #
+
+    assert "psquickit2" in driver.page_source
+    driver.maximize_window()
+    driver.find_element(By.XPATH, "//div[@class='slds-icon-waffle']/..//div[@class='slds-icon-waffle']").click()
+
+    time.sleep(10)
+
+    actions = ActionChains(driver)
+
+    driver.find_element(By.XPATH,"//div[@class='slds-r6']//following::input[@id='input-113']").send_keys("Leads")
+    time.sleep(10)
+    actions.send_keys(Keys.ARROW_DOWN).send_keys(Keys.ENTER).perform()
+
     # time.sleep(10)
     #
     # # click to new button
@@ -49,29 +49,27 @@ def test_lead():
     #
     # driver.find_element(By.XPATH,"//button[@name='SaveEdit']").click()
     # driver.implicitly_wait(50)
-
-    driver.get("https://psquickit2-dev-ed.develop.lightning.force.com/lightning/r/Lead/00QdM0000023eJ7UAI/view")
-
-    time.sleep(20)
-
-    matchStateType = driver.find_element(By.XPATH,
-                                         "//div[@class='runtime_sales_pathassistantPathAssistant']//a[@title='Converted']")
-    driver.execute_script("arguments[0].click();", matchStateType)
     #
-    time.sleep(19)
-    stateType =driver.find_element(By.XPATH,"//button[@class ='slds-button slds-button--brand slds-path__mark-complete stepAction active uiButton']")
-    driver.execute_script("arguments[0].click();",stateType)
-
-    #convert lead to account.
-    time.sleep(10)
-    convert = driver.find_element(By.XPATH,"//button[contains(text(),'Convert')]")
-    driver.execute_script("arguments[0].click();",convert)
-
-    time.sleep(10)
-    lead_conversation = driver.find_element(By.XPATH,"//*[contains(text(),'Your lead has been converted')]")
-    print(lead_conversation.text)
-    assert "Your lead has been converted" in lead_conversation.text
-
-
+    # time.sleep(20)
+    #
+    # matchStateType = driver.find_element(By.XPATH,
+    #                                      "//div[@class='runtime_sales_pathassistantPathAssistant']//a[@title='Converted']")
+    # driver.execute_script("arguments[0].click();", matchStateType)
+    # #
+    # time.sleep(19)
+    # stateType =driver.find_element(By.XPATH,"//button[@class ='slds-button slds-button--brand slds-path__mark-complete stepAction active uiButton']")
+    # driver.execute_script("arguments[0].click();",stateType)
+    #
+    # #convert lead to account.
+    # time.sleep(10)
+    # convert = driver.find_element(By.XPATH,"//button[contains(text(),'Convert')]")
+    # driver.execute_script("arguments[0].click();",convert)
+    #
+    # time.sleep(10)
+    # lead_conversation = driver.find_element(By.XPATH,"//*[contains(text(),'Your lead has been converted')]")
+    # print(lead_conversation.text)
+    # assert "Your lead has been converted" in lead_conversation.text
+    #
+    #
 
 
